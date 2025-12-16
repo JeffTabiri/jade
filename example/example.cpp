@@ -9,7 +9,12 @@ int main(int argc, char *argv[]) {
 
     jade::Vector3 C = A + B;
 
-    std::cout << C.x << " " << C.y << " " << C.z << std::endl;
+    jade::Vector3 D = jade::Vector3::zero();
+
+    jade::Vector3 E = jade::Vector3(1, 0, 0);
+
+    std::cout << D.x << " " << D.y << " " << D.z << std::endl;
+
 
     return 0;
 }
