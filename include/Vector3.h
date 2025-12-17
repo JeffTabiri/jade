@@ -5,13 +5,14 @@
 namespace jade {
     class Vector3 {
     public:
-        int x = {};
-        int y = {};
-        int z = {};
-        Vector3(int x, int y, int z);
+        double x = {};
+        double y = {};
+        double z = {};
+        Vector3(double x, double y, double z);
         Vector3();
         Vector3 operator-(const Vector3& other) const;
         Vector3 operator+(const Vector3& other) const;
+        Vector3 operator*(const double& scalar) const;
         Vector3 operator*(const int& scalar) const;
         int operator*(const Vector3& other) const;
         Vector3 operator/(const int& scalar) const;
@@ -20,6 +21,7 @@ namespace jade {
         float magnitude() const;
 
         Vector3 dot();
+        void print();
 
         static Vector3 unit_X();
         static Vector3 unit_Y();

@@ -1,10 +1,11 @@
 #include "../include/Vector3.h"
 
 #include <complex>
+#include <iostream>
 
 namespace jade {
 
-    Vector3::Vector3(int x, int y, int z) {
+    Vector3::Vector3(double x, double y, double z) {
         this->x = x;
         this->y = y;
         this->z = z;
@@ -25,7 +26,7 @@ namespace jade {
         return Vector3(x + other.x, y + other.y, z + other.z);
     }
 
-    Vector3 Vector3::operator*(const int &scalar) const {
+    Vector3 Vector3::operator*(const double &scalar) const {
         return Vector3(x * scalar, y * scalar, z * scalar);
     }
 
@@ -47,14 +48,14 @@ namespace jade {
         return length;
     }
 
-    Vector3 Vector3::dot() {
-    }
-
      Vector3 Vector3::normalize(const Vector3 &other) {
         float magnitude = other.magnitude();
         return Vector3(other.x / magnitude, other.y / magnitude, other.x / magnitude);
     }
 
+     void Vector3::print() {
+        std::cout << std::format("({}, {}, {})\n", this->x, this->y, this->z);
+     }
 
      Vector3 Vector3::unit_X() {
         return {1, 0, 0};
