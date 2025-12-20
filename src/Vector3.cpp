@@ -5,6 +5,11 @@
 
 namespace jade {
 
+    double geometric_sum(double k, double n, double first) {
+        double result = first * ((std::pow(k, n) - 1) / (k - 1));
+        return result;
+    }
+
     Vector3::Vector3(double x, double y, double z) {
         this->x = x;
         this->y = y;
