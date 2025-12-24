@@ -1,6 +1,7 @@
 #include <Vector3.h>
+#include <vector>
 #include <format>
-
+#include <iostream>
 
 std::vector<double> lin_space(double start, double end, int n = 40) {
     std::vector out(n + 1, 0.0);
@@ -43,7 +44,7 @@ int main(int argc, char *argv[]) {
     jade::Vector3 B = jade::Vector3(10, 20, 10);
 
     auto F = linearize(A, B);
-
+    std::cout << std::format("LOL");
     jade::Vector3 C = A + B;
 
     jade::Vector3 D = jade::Vector3::zero();
