@@ -1,5 +1,5 @@
 # ensures that Cmake will adopt the behaviour of the listed version.
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 4.0)
 
 # Define project Look for C++ compiler
 project(jade CXX)
@@ -22,13 +22,15 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Create the library
-add_library(jade)
+add_library(jade
+        )
 
 target_sources(
         jade
         PRIVATE
         src/Vector2.cpp
         src/Vector3.cpp
+        src/util.cpp
 
         PUBLIC
         FILE_SET HEADERS
@@ -36,6 +38,7 @@ target_sources(
         FILES
         include/Vector2.h
         include/Vector3.h
+        include/Utility.h
 )
 
 target_compile_features(jade PUBLIC cxx_std_20)
