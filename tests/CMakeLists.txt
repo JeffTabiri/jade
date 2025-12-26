@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 4.0)
 
 add_executable(jade_test
-        Vector2_test.cpp
+        Jade_Test.cpp
 )
 
 target_link_libraries(jade_test GTest::gtest_main jade)
