@@ -2,19 +2,12 @@
   "version": 4,
   "configurePresets": [
     {
-      "name": "debug",
+      "name": "test",
+      "description": "Preset to build test suites",
       "generator": "Ninja",
-      "binaryDir": "build/debug",
+      "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
-    },
-    {
-      "name": "release",
-      "generator": "Ninja",
-      "binaryDir": "build/release",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
+        "BUILD_TESTING": "TRUE"
       }
     }
   ]

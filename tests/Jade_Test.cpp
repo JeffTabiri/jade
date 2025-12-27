@@ -1,11 +1,5 @@
-//
-// Created by Solarium on 24/12/2025.
-//
-
 #include "Vector2.h"
-
 #include  <gtest/gtest.h>
-
 #include "Utility.h"
 
 TEST(Vector2Test, AssertVectorAddition) {
