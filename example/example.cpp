@@ -3,6 +3,13 @@
 #include <format>
 #include <iostream>
 
+#include "Matrix4.h"
+
+template<typename T>
+T max(T a, T b) {
+    return (a > b) ? a : b;
+}
+
 std::vector<double> lin_space(double start, double end, int n = 40) {
     std::vector out(n + 1, 0.0);
 
@@ -38,6 +45,9 @@ std::vector<jade::Vector3> linearize(const jade::Vector3& p1, const jade::Vector
 }
 
 int main(int argc, char *argv[]) {
+    auto matA = jade::Matrix4();
+
+    std::cout << matA.grid[1][0] << "\n";
 
     jade::Vector3 A = jade::Vector3(4.0,5,6);
 
