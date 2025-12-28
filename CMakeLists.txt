@@ -29,6 +29,8 @@ target_sources(
         src/Vector2.cpp
         src/Vector3.cpp
         src/util.cpp
+        src/Matrix4.cpp
+        src/Matrix2.cpp
 
         PUBLIC
         FILE_SET HEADERS
@@ -37,17 +39,21 @@ target_sources(
         include/Vector2.h
         include/Vector3.h
         include/Utility.h
+        include/Matrix4.h
+        include/Matrix2.h
 )
 
 target_compile_features(jade PUBLIC cxx_std_20)
 
+# Example
+add_subdirectory(example)
+
 # Tests
 if (BUILD_TESTING)
         enable_testing() # command generates necessary metadata in the build tree in order for ctest to find and run tests.
-        add_subdirectory(tests) #
+        add_subdirectory(test) #
 endif ()
 
-# Example
-add_subdirectory(example)
+
 
 

@@ -1,5 +1,8 @@
 #include "Vector2.h"
 #include  <gtest/gtest.h>
+
+#include "Matrix2.h"
+#include "Matrix4.h"
 #include "Utility.h"
 
 TEST(Vector2Test, AssertVectorAddition) {
@@ -33,4 +36,25 @@ TEST(UtilTest, GeometricSum_SingleTerm) {
     // 1
     const float result = jade::Geometric_Sum(1, 0, 1);
     EXPECT_EQ(result, 1);
+}
+
+TEST(Matrix2, NoArgumentConstructor) {
+    auto A = jade::Matrix2();
+
+    for (int i = 0; i < 2; ++i) {
+        for (int j = 0; j < 2; ++j) {
+            EXPECT_EQ(A.grid[i][j], 0);
+        }
+    }
+}
+
+TEST(Matrix2, ValidateConstructor) {
+    int a[] = {0, 1};
+    int b[] = {2, 0};
+    auto A = jade::Matrix2(a, b);
+
+    EXPECT_EQ(A.grid[0][0], 0);
+    EXPECT_EQ(A.grid[0][1], 1);
+    EXPECT_EQ(A.grid[1][0], 2);
+    EXPECT_EQ(A.grid[1][1], 0);
 }
