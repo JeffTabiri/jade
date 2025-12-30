@@ -21,7 +21,8 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Create the library
-add_library(jade)
+add_library(jade
+        include/Matrix.h)
 
 target_sources(
         jade
@@ -29,7 +30,6 @@ target_sources(
         src/Vector2.cpp
         src/Vector3.cpp
         src/util.cpp
-        src/Matrix4.cpp
         src/Matrix2.cpp
 
         PUBLIC
@@ -39,7 +39,6 @@ target_sources(
         include/Vector2.h
         include/Vector3.h
         include/Utility.h
-        include/Matrix4.h
         include/Matrix2.h
 )
 
