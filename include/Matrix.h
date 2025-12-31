@@ -4,6 +4,7 @@
 
 #ifndef JADE_MATRIX_H
 #define JADE_MATRIX_H
+#include <stdexcept>
 
 template<typename T, int Rows, int Cols>
 class Matrix {
@@ -13,6 +14,17 @@ class Matrix {
 
 public:
     Matrix() = default;
+    Matrix(std::initializer_list<std::initializer_list<T>> init) {
+        int r = 0;
+        for (const auto& row : init) {
+            int c = 0;
+            for (const auto& value : row) {
+                data[r][c] = value;
+                ++c;
+            }
+            ++r;
+        }
+    }
 
     Matrix<T, Rows, Cols> operator+(const Matrix<T, Rows, Cols>& other) const {
         Matrix<T, Rows, Cols> result;
@@ -71,6 +83,21 @@ public:
         }
 
         return result;
+    }
+
+    friend std::ostream& operator<< (std::ostream& out, const Matrix& mat) {
+        for (int i = 0; i < mat.rows; i++) {
+            for (int j = 0; j < mat.cols; j++) {
+                if (j == mat.cols - 1) { // if the number is last in its entry
+                    out << mat.data[i][j];
+                } else {
+                    out << mat.data[i][j] << ", ";
+                }
+            }
+            out << "\n";
+        }
+
+        return out;
     }
 
 };
