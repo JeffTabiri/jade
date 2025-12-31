@@ -3,6 +3,7 @@
 #include <format>
 #include <iostream>
 
+#include "Matrix.h"
 #include "Matrix4.h"
 
 template<typename T>
@@ -45,29 +46,21 @@ std::vector<jade::Vector3> linearize(const jade::Vector3& p1, const jade::Vector
 }
 
 int main(int argc, char *argv[]) {
-    auto matA = jade::Matrix4();
+    Matrix<float, 3, 3> A = {
+        {1,2,4},
+        {1,2,3},
+        {1,2,3},
+    };
 
-    std::cout << matA.grid[1][0] << "\n";
+    Matrix<float, 3, 3> B = {
+        {1,2,4},
+        {1,2,3},
+        {1,2,3},
+    };
 
-    jade::Vector3 A = jade::Vector3(4.0,5,6);
+    auto C = A + B;
 
-    jade::Vector3 B = jade::Vector3(10, 20, 10);
-
-    auto F = linearize(A, B);
-    std::cout << std::format("LOL");
-    jade::Vector3 C = A + B;
-
-    jade::Vector3 D = jade::Vector3::zero();
-
-    jade::Vector3 E = jade::Vector3(1, 0, 0);
-
-    //std::cout << D.x << " " << D.y << " " << D.z << std::endl;
-
-    /*
-    for (auto& item : F) {
-        item.print();
-    }
-    */
+    std::cout << C << std::endl;
 
     return 0;
 }
