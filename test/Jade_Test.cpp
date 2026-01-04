@@ -1,13 +1,13 @@
 #include "Vector2.h"
 #include  <gtest/gtest.h>
 
+#include "Matrix.h"
 #include "Matrix2.h"
-#include "Matrix4.h"
 #include "Utility.h"
 
 TEST(Vector2Test, AssertVectorAddition) {
-    const auto v1 = jade::Vector2(-3,2);
-    const auto v2 = jade::Vector2(2,2);
+    const auto v1 = jade::Vector2(-3, 2);
+    const auto v2 = jade::Vector2(2, 2);
     const auto v3 = v1 + v2;
 
     EXPECT_EQ(v3.x, -1);
@@ -49,12 +49,21 @@ TEST(Matrix2, NoArgumentConstructor) {
 }
 
 TEST(Matrix2, ValidateConstructor) {
-    int a[] = {0, 1};
-    int b[] = {2, 0};
-    auto A = jade::Matrix2(a, b);
+    auto A = jade::Matrix2({}, {});
 
     EXPECT_EQ(A.grid[0][0], 0);
     EXPECT_EQ(A.grid[0][1], 1);
     EXPECT_EQ(A.grid[1][0], 2);
     EXPECT_EQ(A.grid[1][1], 0);
 }
+
+TEST(Matrix, ValidateInput) {
+    Matrix<float, 3, 3> A{
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+
+}
+
